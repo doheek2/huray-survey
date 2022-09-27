@@ -1,5 +1,5 @@
-const TodoList = () => {
-  return <div>foundation</div>
+const Main = () => {
+  return <div>quiz</div>
 }
 
-export default TodoList
+export default Main
