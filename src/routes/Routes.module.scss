@@ -1,7 +1,17 @@
 @use '/src/styles/constants/colors';
 
-.app {
+.appWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background-color: colors.$GRAYE;
+
+  .app {
+    width: 360px;
+    height: 620px;
+    padding: 30px;
+    background-color: colors.$WHITE;
+    border-radius: 60px;
+  }
 }

@@ -1,12 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 300;
+  src: url('../fonts/NotoSansKR-Light.otf') format('woff2'), url('../fonts/NotoSansKR-Light.otf') format('woff'), url('../fonts/NotoSansKR-Light.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+  src: url('../fonts/NotoSansKR-Regular.otf') format('woff2'), url('../fonts/NotoSansKR-Regular.otf') format('woff'), url('../fonts/NotoSansKR-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 500;
+  src: url('../fonts/NotoSansKR-Medium.otf') format('woff2'), url('../fonts/NotoSansKR-Medium.otf') format('woff'), url('../fonts/NotoSansKR-Medium.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  src: url('../fonts/NotoSansKR-Bold.otf') format('woff2'), url('../fonts/NotoSansKR-Bold.otf') format('woff'), url('../fonts/NotoSansKR-Bold.otf') format('truetype');
+}
 
 body,
 button,
 input,
 textarea {
-  font-family: 'Spoqa Han Sans Neo', Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif;
-  font-feature-settings: 'tnum';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 input[type='number'] {

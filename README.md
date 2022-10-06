@@ -1,1 +1,1 @@
-## TypeScript Base Settings
+## 진행중(2022.10.06 ~)
