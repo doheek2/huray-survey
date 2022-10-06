@@ -1,0 +1,46 @@
+@use '/src/styles/constants/colors';
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 480px;
+
+  label {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: colors.$GRAY4;
+  }
+
+  input {
+    width: 120px;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: colors.$GRAY4;
+    border-bottom: 1px solid colors.$GRAY4;
+  }
+
+  .btnListContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footerContainer {
+  width: 300px;
+  height: 80px;
+
+  button {
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    color: colors.$BLACK;
+    background-color: colors.$THEME;
+    border-radius: 23px;
+  }
+}
