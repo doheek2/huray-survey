@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import styles from './Routes.module.scss'
+import SurveyStart from './SurveyStart'
 
-import Main from './Main'
+import styles from './Routes.module.scss'
 
 const App = () => {
   return (
     <div className={styles.appWrapper}>
       <div className={styles.app}>
         <Routes>
-          <Route path='/' element={<Main />} />
+          <Route path='/' element={<SurveyStart />} />
           <Route path='*' element={<div>404</div>} />
         </Routes>
       </div>
