@@ -1,5 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
+
+import SurveyForm from './SurveyForm'
 import SurveyStart from './SurveyStart'
+import Survey from './Survey'
 
 import styles from './Routes.module.scss'
 
@@ -8,7 +11,9 @@ const App = () => {
     <div className={styles.appWrapper}>
       <div className={styles.app}>
         <Routes>
-          <Route path='/' element={<SurveyStart />} />
+          <Route path='/' element={<SurveyForm />} />
+          <Route path='surveyStart' element={<SurveyStart />} />
+          <Route path='survey' element={<Survey />} />
           <Route path='*' element={<div>404</div>} />
         </Routes>
       </div>
