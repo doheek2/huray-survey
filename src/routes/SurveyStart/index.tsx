@@ -1,32 +1,50 @@
+import { useNavigate, useSearchParams } from 'react-router-dom'
+
+import SurveyImage from 'images/image-survey.png'
+import Header from 'components/Header'
+
 import dataList from 'data/surveys.json'
 import styles from './surveyStart.module.scss'
 
-// TODO :: 이름 2-10자 조건, button list 디자인, 그 외 디자인
 const SurveyStart = () => {
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const id = Number(searchParams.get('id'))
+  const name = searchParams.get('name')
+  const { title } = dataList.surveys[id]
+  const { questions } = dataList.surveys[id]
+
+  const btnClickHandler = () => {
+    navigate('/survey', { state: { title, questions } })
+  }
+
   return (
-    <form>
-      <article className={styles.mainContainer}>
-        <div>
-          <label htmlFor='name'>이름</label>
-          <input type='text' id='name' min='2' max='10' />
-          <p>2-10자 내외로 작성해주세요.</p>
-        </div>
-        <div className={styles.btnListContainer}>
-          <p>아래 항목 중 1개를 골라주세요.</p>
-          {dataList.surveys.map((data, i) => {
-            const key = `survey${i}`
-            return (
-              <button key={key} type='button'>
-                {data.title}
-              </button>
-            )
-          })}
-        </div>
-      </article>
-      <article className={styles.footerContainer}>
-        <button type='submit'>등록하기</button>
-      </article>
-    </form>
+    <>
+      <Header text='기초설문' />
+      <main className={styles.mainContainer}>
+        <article>
+          <p className={styles.firstText}>
+            나쁜 생활습관을 바로 잡으면 <br /> 건강이 개선됩니다.
+          </p>
+          <p className={styles.lastText}>
+            설문을 통해 나의 건강 상태를 확인하고, <br />
+            개선할 습관이 무엇인지 알아보아요! <br />
+            결과에 따라 나만의 관리 목표를 설정하면 <br />
+            헬스매니저가 {name}님께 맞는 <br />
+            건강관리 서비스를 제공합니다.
+          </p>
+        </article>
+        <img src={SurveyImage} alt='survey' />
+      </main>
+      <footer className={styles.footerContainer}>
+        <p>
+          설문은 총 <span>{questions.length}문항</span>입니다.
+        </p>
+        <button type='button' onClick={btnClickHandler}>
+          설문 시작
+        </button>
+      </footer>
+    </>
   )
 }
 
