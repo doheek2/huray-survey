@@ -1,0 +1,26 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .completionDot { background-color: colors.$THEME; }
+  .progressDot { border: 3px solid colors.$GRAYD; }
+
+  .line {
+    height: 3px;
+    margin: 0 3px;
+  }
+
+  .completionLine { background-color: colors.$THEME; }
+  .progressLine { background-color: colors.$GRAYD; }
+}
