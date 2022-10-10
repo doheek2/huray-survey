@@ -1,9 +1,12 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
 
 import SurveyImage from 'images/image-survey.png'
 import Header from 'components/Header'
-
+import { isAnsClickedListState, questionNumState, titleState } from 'store/atom'
+import { IisAnsClickedList } from 'types/survey'
 import dataList from 'data/surveys.json'
+
 import styles from './surveyStart.module.scss'
 
 const SurveyStart = () => {
@@ -11,11 +14,22 @@ const SurveyStart = () => {
   const [searchParams] = useSearchParams()
   const id = Number(searchParams.get('id'))
   const name = searchParams.get('name')
-  const { title } = dataList.surveys[id]
   const { questions } = dataList.surveys[id]
 
+  const setTitle = useSetRecoilState(titleState)
+  const setQuestionNum = useSetRecoilState(questionNumState)
+  const setAnsClickedList = useSetRecoilState(isAnsClickedListState)
+
   const btnClickHandler = () => {
-    navigate('/survey', { state: { title, questions } })
+    const arr: IisAnsClickedList = []
+    questions.forEach((questionNm) => {
+      arr.push({ questionNm, selectedAns: [false] })
+    })
+
+    setTitle(dataList.surveys[id].title)
+    setAnsClickedList(arr)
+    setQuestionNum(0)
+    navigate('/survey', { state: { questions } })
   }
 
   return (
